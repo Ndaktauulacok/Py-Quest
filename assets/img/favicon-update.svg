@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PyQuest">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a72a8"/>
+      <stop offset="1" stop-color="#1f4468"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fdc92"/>
+      <stop offset="1" stop-color="#2fa968"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- badan ular berbentuk tanda soal -->
+  <path id="s" d="M170 196 C150 112 205 58 266 58 C338 58 384 108 384 168 C384 224 340 246 304 268 C276 285 262 300 262 336 L262 366" fill="none" stroke="#0f3a2a" stroke-width="84" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M170 196 C150 112 205 58 266 58 C338 58 384 108 384 168 C384 224 340 246 304 268 C276 285 262 300 262 336 L262 366" fill="none" stroke="url(#body)" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- corak sisik -->
+  <path d="M170 196 C150 112 205 58 266 58 C338 58 384 108 384 168 C384 224 340 246 304 268 C276 285 262 300 262 336 L262 366" fill="none" stroke="#b9f5d0" stroke-opacity=".75" stroke-width="12" stroke-linecap="round" stroke-dasharray="0 40" transform="translate(0,0)"/>
+  <!-- kepala -->
+  <ellipse cx="166" cy="214" rx="52" ry="58" fill="#0f3a2a"/>
+  <ellipse cx="166" cy="214" rx="43" ry="49" fill="url(#body)"/>
+  <circle cx="146" cy="202" r="13" fill="#fff"/><circle cx="188" cy="202" r="13" fill="#fff"/>
+  <circle cx="149" cy="206" r="7" fill="#12202f"/><circle cx="185" cy="206" r="7" fill="#12202f"/>
+  <circle cx="151" cy="203" r="2.4" fill="#fff"/><circle cx="187" cy="203" r="2.4" fill="#fff"/>
+  <!-- lidah bercabang -->
+  <path d="M166 262 L166 298 M166 298 L150 318 M166 298 L182 318" fill="none" stroke="#e5483a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- titik (telur / noktah) -->
+  <circle cx="262" cy="452" r="34" fill="#f2c230" stroke="#0f3a2a" stroke-width="10"/>
+</svg>
