@@ -1,0 +1,34 @@
+/* PyQuest — kesan hover (update 2). Dimuat paling akhir. Hanya pada peranti yang ada tetikus. */
+.btn, .menu-card, .nav-link, .quiz-choice, .btn-correct, .btn-wrong, .language-switch button, .name-change, .menu-icon, .menu-arrow, .brand-mark, .choice-key {
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.nav-link { background-image: linear-gradient(var(--yellow), var(--yellow)); background-repeat: no-repeat; background-position: 12px calc(100% - 4px); background-size: 0 3px; }
+@media (hover: hover) and (pointer: fine) {
+  /* Logo */
+  .brand:hover .brand-mark { transform: rotate(-8deg) scale(1.06); }
+  /* Navigasi: garis kuning meluncur */
+  .nav-link:hover:not(.active) { background-size: calc(100% - 24px) 3px; }
+  .language-switch button:not(.selected):hover { background: #ffffff1f; color: #fff; }
+  /* Butang */
+  .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 3px 0 #16304a; }
+  .btn-secondary:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--blue); color: var(--blue-d); box-shadow: 0 3px 0 #bcc3b8; }
+  .btn-ghost:hover:not(:disabled) { transform: translateX(2px); }
+  .btn:active:not(:disabled) { transform: translateY(1px); box-shadow: none; }
+  /* Kad aktiviti: anjakan dengan bayang keras seperti blok kod */
+  .menu-card:hover { transform: translate(-3px, -3px); box-shadow: 5px 5px 0 var(--ink); border-color: var(--ink); background: #fff; }
+  .menu-card:hover .menu-icon { background: var(--yellow); color: var(--ink); transform: rotate(-6deg); }
+  .menu-card:hover .menu-arrow { transform: translateX(5px); color: var(--ink); }
+  .menu-card:active { transform: translate(0, 0); box-shadow: 2px 2px 0 var(--ink); }
+  /* Puzzle: Betul / Salah */
+  .btn-correct:hover { transform: translateY(-3px); box-shadow: 0 4px 0 #14583a; }
+  .btn-wrong:hover { transform: translateY(-3px); box-shadow: 0 4px 0 #86261f; }
+  .btn-correct:active, .btn-wrong:active { transform: translateY(0); box-shadow: none; }
+  /* Kuiz: pilihan jawapan */
+  .quiz-choice:hover:not(:disabled):not(.selected) { transform: translateX(5px); }
+  .quiz-choice:hover:not(:disabled) .choice-key { background: var(--blue); border-color: var(--blue); color: #fff; }
+  /* Lain-lain */
+  .name-change:hover { color: var(--yellow); }
+  .admin-puzzle-row:hover { border-color: var(--blue); }
+  .spot-card .v-bad { transition: transform .15s ease; }
+  .spot-card:hover .v-bad { transform: translateY(-2px); }
+}
