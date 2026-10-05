@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/puzzle-update.css">
     <link rel="stylesheet" href="assets/css/admin-update.css">
     <link rel="stylesheet" href="assets/css/clean-theme-update.css">
+    <link rel="stylesheet" href="assets/css/hover-update-2.css">
 </head>
 <body>
     <div id="app" class="app-shell">
@@ -28,9 +29,37 @@
     </div>
     <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
     <noscript>PyQuest memerlukan JavaScript. / PyQuest needs JavaScript.</noscript>
-    <script src="data/questions.js"></script>
-    <script src="data/puzzles.js"></script>
-    <script src="assets/js/engine-update.js"></script>
-    <script src="assets/js/app-update.js" defer></script>
+    <script>
+    /* Pemuat fail: cari di beberapa folder supaya laman tetap jalan walaupun fail tersalah letak. */
+    (function () {
+      var jobs = [
+        ['questions.js', ['data/', '', 'assets/js/']],
+        ['puzzles.js', ['data/', '', 'assets/js/']],
+        ['engine-update.js', ['assets/js/', '']],
+        ['app-update.js', ['assets/js/', '']]
+      ], missing = [];
+      function warn() {
+        if (!missing.length) return;
+        var box = document.createElement('div');
+        box.setAttribute('role', 'alert');
+        box.style.cssText = 'background:#faeceb;color:#86261f;border-bottom:3px solid #b0352d;padding:12px 20px;font:14px/1.5 sans-serif;text-align:center';
+        box.textContent = 'Fail tidak dijumpai / File not found: ' + missing.join(', ') + ' \u2014 muat naik ke folder yang betul di GitHub.';
+        document.body.insertBefore(box, document.body.firstChild);
+      }
+      function run(i) {
+        if (i >= jobs.length) { warn(); return; }
+        var name = jobs[i][0], dirs = jobs[i][1], k = 0;
+        (function tryNext() {
+          if (k >= dirs.length) { missing.push(dirs[0] + name); if (i < 2) run(i + 1); else warn(); return; }
+          var s = document.createElement('script');
+          s.src = dirs[k++] + name;
+          s.onload = function () { run(i + 1); };
+          s.onerror = function () { if (s.parentNode) s.parentNode.removeChild(s); tryNext(); };
+          document.body.appendChild(s);
+        })();
+      }
+      run(0);
+    })();
+    </script>
 </body>
 </html>
