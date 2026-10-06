@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>PyQuest — Reset password</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon-update.svg?v=2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style-update-2.css">
+<link rel="stylesheet" href="assets/css/clean-theme-update-2.css">
+<link rel="stylesheet" href="assets/css/auth-update-6.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="/"><img class="brand-mark" src="assets/img/favicon-update.svg?v=2" alt="" width="30" height="30"><span class="brand-text"><span class="brand-word">Py<em>Quest</em></span></span></a></div></header>
+  <main class="main-content"><section class="login-card card glass" id="box"><p id="msg">…</p></section></main>
+</div>
+<script src="assets/js/firebase-config-update-3.js"></script>
+<script>
+(function () {
+  var SDK = 'https://www.gstatic.com/firebasejs/10.12.5/';
+  var q = new URLSearchParams(location.search);
+  var mode = q.get('mode'), code = q.get('oobCode');
+  var ms = (q.get('lang') || navigator.language || '').toLowerCase().indexOf('ms') === 0;
+  var T = ms ? {
+    title: 'Tetapkan kata laluan baharu', np: 'Kata laluan baharu', cp: 'Sahkan kata laluan', help: 'Kata laluan mesti sekurang-kurangnya 6 aksara.', save: 'Simpan kata laluan',
+    short: 'Kata laluan mesti sekurang-kurangnya 6 aksara.', mismatch: 'Kata laluan tidak sama.', bad: 'Pautan ini tidak sah atau sudah tamat tempoh. Minta pautan baharu daripada halaman Log Masuk.',
+    done: 'Kata laluan telah ditukar. Anda boleh log masuk sekarang.', go: 'Pergi ke PyQuest', net: 'Masalah rangkaian. Cuba lagi.', weak: 'Kata laluan ditolak. Cuba kata laluan yang lain.'
+  } : {
+    title: 'Set a new password', np: 'New password', cp: 'Confirm password', help: 'Password must be at least 6 characters.', save: 'Save password',
+    short: 'Password must be at least 6 characters.', mismatch: 'Passwords do not match.', bad: 'This link is invalid or has expired. Request a new one from the Log In page.',
+    done: 'Your password has been changed. You can log in now.', go: 'Go to PyQuest', net: 'Network problem. Please try again.', weak: 'Password rejected. Try a different one.'
+  };
+  document.documentElement.lang = ms ? 'ms' : 'en';
+  var box = document.getElementById('box');
+  function load(src) { return new Promise(function (res, rej) { var s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = function () { rej(new Error('sdk')); }; document.head.appendChild(s); }); }
+  function show(html) { box.innerHTML = html; }
+  function bad(m) { show('<h1>PyQuest</h1><p>' + m + '</p><a class="btn btn-primary login-submit" href="/">' + T.go + '</a>'); }
+  if (mode !== 'resetPassword' || !code || !window.PYQUEST_FIREBASE) { bad(T.bad); return; }
+  (async function () {
+    try {
+      await load(SDK + 'firebase-app-compat.js'); await load(SDK + 'firebase-auth-compat.js');
+      firebase.initializeApp(window.PYQUEST_FIREBASE);
+      var auth = firebase.auth();
+      await auth.verifyPasswordResetCode(code);
+      show('<h1>' + T.title + '</h1><p>' + T.help + '</p><form id="f" novalidate><label class="field-label" for="p1">' + T.np + '</label><input id="p1" class="text-input" type="password" autocomplete="new-password" required autofocus><label class="field-label" for="p2">' + T.cp + '</label><input id="p2" class="text-input" type="password" autocomplete="new-password" required><div class="form-error" id="err" role="alert"></div><button class="btn btn-primary login-submit" type="submit">' + T.save + '</button></form>');
+      document.getElementById('f').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var p1 = document.getElementById('p1').value, p2 = document.getElementById('p2').value, err = document.getElementById('err');
+        if ([].concat(Array.from(p1)).length < 6) { err.textContent = T.short; return; }
+        if (p1 !== p2) { err.textContent = T.mismatch; return; }
+        var btn = e.target.querySelector('button'); btn.disabled = true; err.textContent = '';
+        try { await auth.confirmPasswordReset(code, p1); show('<h1>PyQuest</h1><p>' + T.done + '</p><a class="btn btn-primary login-submit" href="/">' + T.go + '</a>'); }
+        catch (x) { btn.disabled = false; err.textContent = (x.code === 'auth/network-request-failed') ? T.net : (x.code === 'auth/weak-password' ? T.weak : T.bad); }
+      });
+    } catch (x) { bad(x && x.message === 'sdk' || (x && x.code === 'auth/network-request-failed') ? T.net : T.bad); }
+  })();
+})();
+</script>
+</body>
+</html>
