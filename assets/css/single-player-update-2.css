@@ -1,0 +1,2 @@
+/* PyQuest — menu grid on small screens (two activities) */
+@media (max-width: 560px) { .menu-grid { grid-template-columns: minmax(0, 1fr); } .menu-card { min-height: 0; } }
