@@ -1,0 +1,82 @@
+/* PyQuest — update 14: tema Permainan Klasik (8-bit). Semua lukisan & skin adalah rekaan asli PyQuest. */
+html[data-theme="retro"] {
+  --bg: #12102b; --bg2: #1b1840;
+  --panel: #1e1b4b; --panel2: #272463;
+  --text: #f1f5f9; --muted: #a5b4fc; --heading: #fef08a;
+  --primary: #22c55e; --primary-d: #15803d; --primary-l: #133a2a; --on-primary: #04130a;
+  --accent: #e11d48; --accent-d: #9f1239; --on-accent: #fff;
+  --good: #4ade80; --good-l: #0f2e1d; --bad: #fb7185; --bad-l: #3b0d1c;
+  --c1: #e11d48; --c2: #facc15; --c3: #22c55e; --c4: #38bdf8; --c5: #a855f7; --c6: #fb923c;
+  --line: #4338ca; --code-bg: #000000; --code-ink: #e2e8f0;
+  --header-bg: #000000; --header-ink: #f1f5f9; --header-muted: #a5b4fc;
+  --radius: 0px; --radius-s: 0px;
+  --shadow: 6px 6px 0 #000;
+  --shadow-s: 4px 4px 0 #000;
+  --btn-shadow: 4px 4px 0 #000;
+  --display: "Press Start 2P", "VT323", monospace;
+  --brand-a: #f1f5f9; --brand-b: #facc15;
+  --sk-main: #4ade80; --sk-out: #052e16; --sk-belly: #dcfce7; --sk-scale: #15803d; --sk-head: #5ee68f;
+  --cape: #e11d48; --cape2: #9f1239; --mask: #111; --mask-tail: #111; --shield: #facc15; --emblem: #e11d48; --shield-out: #000;
+  --burst-a: #312e81; --burst-b: #12102b; --ray: #3730a3; --ray2: #1e1b4b; --ring: #facc15; --star: #facc15; --dot: #38bdf8;
+  --bs-body: #a855f7; --bs-out: #000; --bs-spot: #e9d5ff; --bs-ant: #000; --bs-ball: #facc15;
+}
+html[data-theme="retro"] .bg-deco .pat {
+  background-image: linear-gradient(rgba(99, 102, 241, .14) 2px, transparent 2px), linear-gradient(90deg, rgba(99, 102, 241, .14) 2px, transparent 2px);
+  background-size: 32px 32px;
+}
+html[data-theme="retro"] .bg-deco::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .18) 0 2px, transparent 2px 4px); }
+html[data-theme="retro"] .bg-deco span { border-radius: 0; opacity: .12; filter: none; }
+/* Tulisan piksel — tajuk sahaja supaya mudah dibaca */
+html[data-theme="retro"] h1, html[data-theme="retro"] .page-title, html[data-theme="retro"] .landing-title { font-family: var(--display); line-height: 1.35; letter-spacing: 0; text-shadow: 3px 3px 0 #000; }
+html[data-theme="retro"] .page-title { font-size: clamp(18px, 2.4vw, 26px); }
+html[data-theme="retro"] .landing-title { font-size: clamp(22px, 3.4vw, 38px); }
+html[data-theme="retro"] .pq-dialog h2, html[data-theme="retro"] .card h2, html[data-theme="retro"] .pf-card h2, html[data-theme="retro"] .ss-info h2, html[data-theme="retro"] .pc-body b, html[data-theme="retro"] .shop-banner .mpb-body b, html[data-theme="retro"] .mpb-body b, html[data-theme="retro"] .stat-tile b, html[data-theme="retro"] .sk-name, html[data-theme="retro"] .pf-me b { font-family: var(--display); font-size: 15px; line-height: 1.5; }
+html[data-theme="retro"] .stat-tile b { font-size: 18px; }
+html[data-theme="retro"] .brand { font: 400 16px var(--display); }
+html[data-theme="retro"] .site-header { border-bottom: 4px solid #4338ca; box-shadow: 0 4px 0 #000; }
+html[data-theme="retro"] .nav-link { border-radius: 0; font-family: var(--display); font-size: 10px; font-weight: 400; }
+html[data-theme="retro"] .nav-link.active { background: #22c55e; color: #04130a; box-shadow: 3px 3px 0 #4338ca; }
+html[data-theme="retro"] .theme-btn, html[data-theme="retro"] .language-switch, html[data-theme="retro"] .profile-pill, html[data-theme="retro"] .coin-pill, html[data-theme="retro"] .xp-pill, html[data-theme="retro"] .menu-toggle { border-radius: 0; }
+html[data-theme="retro"] .language-switch button.selected { background: #facc15; color: #000; }
+/* Butang & kad bersudut tajam dengan bayang piksel */
+html[data-theme="retro"] .btn { border-radius: 0; font-family: var(--display); font-size: 11px; font-weight: 400; letter-spacing: 0; box-shadow: 4px 4px 0 #000; border: 3px solid #000; }
+html[data-theme="retro"] .btn-big { font-size: 14px; }
+html[data-theme="retro"] .btn:active:not(:disabled) { transform: translate(4px, 4px); box-shadow: none; }
+html[data-theme="retro"] .btn-secondary { background: var(--panel2); color: var(--text); }
+html[data-theme="retro"] .btn-ghost { border-color: transparent; box-shadow: none; }
+html[data-theme="retro"] .btn-accent { background: #facc15; color: #000; }
+html[data-theme="retro"] .card, html[data-theme="retro"] .sk-card, html[data-theme="retro"] .pf-tab, html[data-theme="retro"] .stat-tile, html[data-theme="retro"] .text-input { border-radius: 0; border: 3px solid #4338ca; box-shadow: 6px 6px 0 #000; }
+html[data-theme="retro"] .text-input { box-shadow: none; background: #000; }
+html[data-theme="retro"] .pq-dialog { border-radius: 0; border: 4px solid #facc15; box-shadow: 8px 8px 0 #000; }
+html[data-theme="retro"] .toast { border-radius: 0; background: #000; color: #facc15; border: 3px solid #facc15; font-family: var(--mono); }
+html[data-theme="retro"] .tag-pill, html[data-theme="retro"] .landing-stats div, html[data-theme="retro"] .hero-bubble, html[data-theme="retro"] .auth-bubble, html[data-theme="retro"] .lobby-chip, html[data-theme="retro"] .sk-rar, html[data-theme="retro"] .pf-rank, html[data-theme="retro"] .shop-wallet, html[data-theme="retro"] .sb-coins, html[data-theme="retro"] .pc-cta, html[data-theme="retro"] .mini-theme, html[data-theme="retro"] .pf-big, html[data-theme="retro"] .pf-pic-now, html[data-theme="retro"] .ans, html[data-theme="retro"] .pz-btn, html[data-theme="retro"] .rank-badge, html[data-theme="retro"] .mode-btn, html[data-theme="retro"] .lvl-btn, html[data-theme="retro"] .speed-btn, html[data-theme="retro"] .power-btn, html[data-theme="retro"] .hud, html[data-theme="retro"] .play-card, html[data-theme="retro"] .mp-banner, html[data-theme="retro"] .shop-banner, html[data-theme="retro"] .coin-note, html[data-theme="retro"] .cr, html[data-theme="retro"] .pf-stats div { border-radius: 0 !important; }
+html[data-theme="retro"] .hero-bubble, html[data-theme="retro"] .auth-bubble { border: 3px solid #facc15; box-shadow: 4px 4px 0 #000; font-family: var(--mono); background: #000; color: #facc15; }
+html[data-theme="retro"] .tk-k { color: #f472b6; } html[data-theme="retro"] .tk-b { color: #facc15; } html[data-theme="retro"] .tk-s { color: #4ade80; } html[data-theme="retro"] .tk-n { color: #38bdf8; }
+html[data-theme="retro"] .rank-badge { background: #facc15; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; transform: none; font-family: var(--display); }
+html[data-theme="retro"] .ans { border: 3px solid #000; box-shadow: 4px 4px 0 #000; }
+html[data-theme="retro"] .pc-quiz { background: #e11d48; } html[data-theme="retro"] .pc-puzzle { background: #2563eb; }
+html[data-theme="retro"] .mp-banner { background: #7c3aed; } html[data-theme="retro"] .shop-banner { background: #ca8a04; }
+html[data-theme="retro"] .pc-cta { background: #facc15; color: #000; border: 3px solid #000; }
+html[data-theme="retro"] .lobby-stage, html[data-theme="retro"] .auth-side { background: linear-gradient(180deg, #1e3a8a 0 62%, #15803d 62% 70%, #713f12 70%); }
+html[data-theme="retro"] .battle { background: linear-gradient(180deg, #38bdf8 0 64%, #22c55e 64% 72%, #a16207 72%); }
+html[data-theme="retro"] .trail-wrap { background: #000; border: 3px solid #4338ca; }
+html[data-theme="retro"] .f-name { background: #000; color: #facc15; border-radius: 0; font-family: var(--mono); }
+html[data-theme="retro"] .boss-hp, html[data-theme="retro"] .boss-hp i, html[data-theme="retro"] .xp-track, html[data-theme="retro"] .xp-track i, html[data-theme="retro"] .timer-bar, html[data-theme="retro"] .timer-bar i { border-radius: 0; }
+html[data-theme="retro"] .chest .c-lid, html[data-theme="retro"] .chest .c-box { fill: #a16207; }
+
+/* Maskot jadi piksel (penapis SVG) */
+html[data-theme="retro"] .hero-svg .hx-float { filter: var(--px); }
+html[data-theme="retro"] .hx-float { animation-timing-function: steps(4, end); }
+html[data-theme="retro"] .hx-ray, html[data-theme="retro"] .hx-ray.alt { opacity: .5; }
+html[data-theme="retro"] .hero-svg .acc-retro, html[data-theme="retro"] .brand-text .acc-retro, html[data-theme="retro"] .boss-svg .acc-retro { display: inline; }
+html[data-theme="retro"] .hx-cheek, html[data-theme="retro"] .hero-svg .eyes { display: none; }
+html[data-theme="retro"] .hx-scales { stroke-linecap: butt; stroke-dasharray: 8 14; }
+.hx-shades { fill: #111; }
+.hx-shadeglint { fill: #fff; }
+.hx-pxcap { fill: #e11d48; stroke: #000; stroke-width: 3; }
+.hx-pxcap2 { fill: #9f1239; }
+.tc-retro { background: repeating-linear-gradient(90deg, #1e1b4b 0 12px, #272463 12px 24px); box-shadow: inset 0 0 0 3px #facc15; }
+/* Special 'blocks': blok berwarna pada badan */
+.fx-blocks .sk-pattern { display: inline; fill: none; stroke: var(--sk-fx); stroke-width: 26; stroke-dasharray: 16 16; stroke-linecap: butt; opacity: .85; }
+html[data-theme="retro"] .guest-note, html[data-theme="retro"] .pf-tabcoin, html[data-theme="retro"] .profile-pill .avatar, html[data-theme="retro"] .pf-preset, html[data-theme="retro"] .pf-avatar circle:first-child { border-radius: 0; }
+html[data-theme="retro"] .brand { font-size: 17px; }

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="default">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#5132d6">
+    <script>try{var th=localStorage.getItem("pyquest-theme");if(["default","retro","pirate","cyber","dark","light","boys","girls"].indexOf(th)>=0)document.documentElement.setAttribute("data-theme",th);}catch(e){}</script>
+    <meta name="description" content="PyQuest: game Python dwibahasa untuk pelajar 17 tahun ke bawah — Quiz Battle, Bug Hunt, tema dan pangkat. / Bilingual Python games for young coders.">
+    <title>PyQuest — Python Games for Young Coders</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon-update.svg?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32-update.png?v=2">
+    <link rel="shortcut icon" href="assets/img/favicon-update.ico?v=2">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-update.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Fredoka:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Lilita+One&family=Nunito:wght@500;600;700;800;900&family=Orbitron:wght@600;700;800&family=Pirata+One&family=Cinzel:wght@600;700;800&family=Cinzel+Decorative:wght@700&family=Press+Start+2P&family=VT323&display=swap">
+    <link rel="stylesheet" href="assets/css/style-update-2.css">
+    <link rel="stylesheet" href="assets/css/quiz-update-2.css">
+    <link rel="stylesheet" href="assets/css/single-player-update-2.css">
+    <link rel="stylesheet" href="assets/css/puzzle-update-2.css">
+    <link rel="stylesheet" href="assets/css/admin-update-3.css">
+    <link rel="stylesheet" href="assets/css/clean-theme-update-2.css">
+    <link rel="stylesheet" href="assets/css/info-update-3.css">
+    <link rel="stylesheet" href="assets/css/hover-update-3.css">
+    <link rel="stylesheet" href="assets/css/auth-update-4.css">
+    <link rel="stylesheet" href="assets/css/auth-update-6.css">
+    <link rel="stylesheet" href="assets/css/theme-update-7.css">
+    <link rel="stylesheet" href="assets/css/game-update-7.css">
+    <link rel="stylesheet" href="assets/css/mp-update-8.css">
+    <link rel="stylesheet" href="assets/css/admin-update-9.css">
+    <link rel="stylesheet" href="assets/css/theme-update-13.css">
+    <link rel="stylesheet" href="assets/css/profile-update-13.css">
+    <link rel="stylesheet" href="assets/css/theme-update-14.css">
+    <link rel="stylesheet" href="assets/css/theme-update-15.css">
+</head>
+<body>
+    <div class="bg-deco" aria-hidden="true"><span class="pat"></span><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <div id="app" class="app-shell">
+        <header id="site-header" class="site-header"></header>
+        <main id="main-content" class="main-content" tabindex="-1"></main>
+        <footer class="site-footer"><span>© <span id="year"></span> PyQuest</span><span data-i18n="footer">Learn Python by playing.</span></footer>
+    </div>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <noscript>PyQuest memerlukan JavaScript. / PyQuest needs JavaScript.</noscript>
+    <script>
+    /* Pemuat fail: cari di beberapa folder supaya laman tetap jalan walaupun fail tersalah letak.
+       Tahap 0 = data/pilihan (amaran sahaja), 1 = senyap jika tiada (konfigurasi), 2 = wajib (laman berhenti). */
+    (function () {
+      var D = ['data/', '', 'assets/js/'], J = ['assets/js/', ''];
+      var jobs = [
+        ['questions-update-7.js', D, 0], ['puzzles-update-7.js', D, 0], ['notes-update-8.js', D, 0],
+        ['info-update-8.js', J, 0], ['firebase-config-update-3.js', J, 1], ['auth-update-13.js', J, 0], ['analytics-update-4.js', J, 0], ['mp-update-8.js', J, 0], ['bank-update-11.js', J, 0],
+        ['skins-update-14.js', J, 2], ['art-update-15.js', J, 2], ['fx-update-7.js', J, 0], ['engine-update-13.js', J, 2], ['app-update-14.js', J, 2]
+      ], missing = [];
+      function warn() {
+        if (!missing.length) return;
+        var box = document.createElement('div');
+        box.setAttribute('role', 'alert');
+        box.style.cssText = 'background:#faeceb;color:#86261f;border-bottom:3px solid #b0352d;padding:12px 20px;font:14px/1.5 sans-serif;text-align:center';
+        box.textContent = 'Fail tidak dijumpai / File not found: ' + missing.join(', ') + ' \u2014 muat naik ke folder yang betul di GitHub.';
+        document.body.insertBefore(box, document.body.firstChild);
+      }
+      function run(i) {
+        if (i >= jobs.length) { warn(); return; }
+        var name = jobs[i][0], dirs = jobs[i][1], level = jobs[i][2], k = 0;
+        (function tryNext() {
+          if (k >= dirs.length) {
+            if (level !== 1) missing.push(dirs[0] + name);
+            if (level === 2) warn(); else run(i + 1);
+            return;
+          }
+          var s = document.createElement('script');
+          s.src = dirs[k++] + name;
+          s.onload = function () { run(i + 1); };
+          s.onerror = function () { if (s.parentNode) s.parentNode.removeChild(s); tryNext(); };
+          document.body.appendChild(s);
+        })();
+      }
+      run(0);
+    })();
+    </script>
+</body>
+</html>
