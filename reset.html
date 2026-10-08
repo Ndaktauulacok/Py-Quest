@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-theme="default">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>PyQuest — Reset password</title>
+<script>try{var th=localStorage.getItem("pyquest-theme");if(["default","retro","pirate","cyber","dark","light","boys","girls"].indexOf(th)>=0)document.documentElement.setAttribute("data-theme",th);}catch(e){}</script>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon-update.svg?v=2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Fredoka:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Lilita+One&family=Nunito:wght@500;600;700;800;900&family=Orbitron:wght@600;700;800&family=Pirata+One&family=Cinzel:wght@600;700;800&family=Cinzel+Decorative:wght@700&family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="assets/css/style-update-2.css">
+<link rel="stylesheet" href="assets/css/clean-theme-update-2.css">
+<link rel="stylesheet" href="assets/css/auth-update-6.css">
+<link rel="stylesheet" href="assets/css/theme-update-7.css">
+<link rel="stylesheet" href="assets/css/game-update-7.css">
+<link rel="stylesheet" href="assets/css/admin-update-9.css">
+<link rel="stylesheet" href="assets/css/theme-update-13.css">
+<link rel="stylesheet" href="assets/css/theme-update-14.css">
+<style>
+  .rs-wrap { max-width: 940px; margin: 0 auto; }
+  .rs-who { margin: 0 0 12px; padding: 10px 14px; border-radius: 12px; background: var(--primary-l); color: var(--heading); font: 800 16px var(--mono); word-break: break-all; }
+  .rs-big { font-size: 46px; line-height: 1; }
+  .rs-tips { margin: 6px 0 14px; padding-left: 20px; color: var(--muted); font-weight: 600; }
+  .rs-tips li { margin: 4px 0; }
+  .brand { color: var(--brand-a); font: 800 24px var(--display); }
+  .brand em { color: var(--brand-b); font-style: normal; }
+</style>
+</head>
+<body>
+<div class="bg-deco" aria-hidden="true"><span class="pat"></span><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+<div class="app-shell">
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="./"><span>Py<em>Quest</em></span></a></div></header>
+  <main class="main-content"><section class="auth-split is-forgot rs-wrap"><div class="auth-side"><div class="auth-mascot m-idle" id="auth-mascot"><div id="art"></div><div class="auth-bubble" id="bubble">…</div></div></div><div class="auth-form-card card" id="box"><p>…</p></div></section></main>
+</div>
+<script src="assets/js/firebase-config-update-3.js"></script>
+<script src="assets/js/skins-update-14.js"></script>
+<script src="assets/js/art-update-14.js"></script>
+<script>
+/* PyQuest — halaman tetapan semula kata laluan (dibuka daripada pautan dalam emel Firebase).
+   Firebase → Authentication → Templates → Password reset → Customize action URL → https://DOMAIN-ANDA/reset.html */
+(function () {
+  var SDK = 'https://www.gstatic.com/firebasejs/10.12.5/';
+  var q = new URLSearchParams(location.search);
+  var mode = q.get('mode'), code = q.get('oobCode');
+  var saved = ''; try { saved = localStorage.getItem('pyquest-language') || ''; } catch (e) {}
+  var ms = (saved || q.get('lang') || navigator.language || '').toLowerCase().indexOf('ms') === 0;
+  var T = ms ? {
+    title: 'Tetapkan kata laluan baharu', forAcc: 'Untuk akaun:', np: 'Kata laluan baharu', cp: 'Sahkan kata laluan', save: 'Simpan kata laluan', show: 'Tunjuk',
+    ck1: 'Sekurang-kurangnya 6 aksara', ck2: 'Kedua-dua kata laluan sama', checking: 'Menyemak pautan…', hi: 'Jom buat kata laluan baharu!', ok: 'Siap! Jom log masuk.', sad: 'Alamak, pautan ini bermasalah.',
+    doneT: 'Kata laluan ditukar!', done: 'Kata laluan baharu anda sudah disimpan. Log masuk dengan nama pengguna (atau emel) dan kata laluan baharu.', login: 'Log masuk sekarang',
+    expiredT: 'Pautan sudah tamat tempoh', expired: 'Pautan tetapan semula hanya sah selama 1 jam. Minta pautan baharu.',
+    usedT: 'Pautan tidak sah lagi', used: 'Pautan ini sudah digunakan, atau anda telah meminta pautan yang lebih baharu. Buka emel PyQuest yang TERBARU, atau minta pautan baharu.',
+    missingT: 'Pautan tidak lengkap', missing: 'Pautan ini tidak lengkap. Tekan butang terus dari emel (jangan salin sebahagian sahaja), atau minta pautan baharu.',
+    goneT: 'Akaun tidak dijumpai', gone: 'Akaun ini sudah dipadam atau disekat. Hubungi cikgu (admin).',
+    short: 'Kata laluan mesti sekurang-kurangnya 6 aksara.', mismatch: 'Kata laluan tidak sama.', weak: 'Kata laluan ditolak. Cuba kata laluan yang lebih panjang.',
+    net: 'Masalah rangkaian. Semak internet dan cuba lagi.', retry: 'Cuba lagi', again: 'Minta pautan baharu', home: 'Pergi ke PyQuest',
+    tips: ['Buka emel daripada PyQuest yang paling baharu.', 'Semak juga folder Spam dan Promosi.', 'Tekan pautan dalam masa 1 jam.'],
+    verifiedT: 'Emel disahkan!', verified: 'Terima kasih. Emel anda sudah disahkan.'
+  } : {
+    title: 'Set a new password', forAcc: 'For account:', np: 'New password', cp: 'Confirm password', save: 'Save password', show: 'Show',
+    ck1: 'At least 6 characters', ck2: 'Both passwords match', checking: 'Checking your link…', hi: "Let's make a new password!", ok: "Done! Let's log in.", sad: 'Oops, this link has a problem.',
+    doneT: 'Password changed!', done: 'Your new password is saved. Log in with your username (or email) and the new password.', login: 'Log in now',
+    expiredT: 'This link has expired', expired: 'Reset links only work for 1 hour. Please ask for a new one.',
+    usedT: 'This link no longer works', used: 'This link was already used, or you asked for a newer link. Open the NEWEST PyQuest email, or ask for a new link.',
+    missingT: 'This link is incomplete', missing: 'This link is not complete. Press the button straight from the email (do not copy part of it), or ask for a new link.',
+    goneT: 'Account not found', gone: 'This account was deleted or disabled. Please contact your teacher (admin).',
+    short: 'Password must be at least 6 characters.', mismatch: 'Passwords do not match.', weak: 'Password rejected. Try a longer one.',
+    net: 'Network problem. Check the internet and try again.', retry: 'Try again', again: 'Ask for a new link', home: 'Go to PyQuest',
+    tips: ['Open the newest email from PyQuest.', 'Also check the Spam and Promotions folders.', 'Press the link within 1 hour.'],
+    verifiedT: 'Email verified!', verified: 'Thank you. Your email is now verified.'
+  };
+  document.documentElement.lang = ms ? 'ms' : 'en';
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var box = document.getElementById('box'), mascot = document.getElementById('auth-mascot'), bubble = document.getElementById('bubble');
+  if (window.PyQuestArt) document.getElementById('art').innerHTML = window.PyQuestArt.hero('no-bg');
+  function mood(cls, text) { mascot.className = 'auth-mascot ' + cls; bubble.textContent = text; }
+  function load(src) { return new Promise(function (res, rej) { var s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = function () { rej({ code: 'sdk' }); }; document.head.appendChild(s); }); }
+  function problem(title, text, showTips) {
+    mood('m-sad', T.sad);
+    box.innerHTML = '<div class="rs-big">⚠️</div><h1>' + title + '</h1><p class="auth-lead">' + text + '</p>' +
+      (showTips ? '<ul class="rs-tips">' + T.tips.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>' : '') +
+      '<a class="btn btn-primary btn-big login-submit" href="./?login=1">' + T.again + '</a><a class="btn btn-ghost login-submit" href="./">' + T.home + '</a>';
+  }
+  function fromError(x) {
+    var c = (x && x.code) || '';
+    if (c === 'sdk' || c === 'auth/network-request-failed') {
+      mood('m-sad', T.sad);
+      box.innerHTML = '<div class="rs-big">📶</div><h1>' + T.net + '</h1><button class="btn btn-primary btn-big login-submit" onclick="location.reload()">' + T.retry + '</button>';
+      return;
+    }
+    if (c === 'auth/expired-action-code') return problem(T.expiredT, T.expired, true);
+    if (c === 'auth/user-disabled' || c === 'auth/user-not-found') return problem(T.goneT, T.gone, false);
+    if (c === 'auth/argument-error' || c === 'auth/missing-action-code') return problem(T.missingT, T.missing, true);
+    return problem(T.usedT, T.used, true);   // auth/invalid-action-code dan lain-lain
+  }
+  if (!window.PYQUEST_FIREBASE || !code || !mode) { problem(T.missingT, T.missing, true); return; }
+  mood('m-typing', T.checking);
+  box.innerHTML = '<p class="auth-lead">' + T.checking + '</p>';
+  (async function () {
+    var auth;
+    try {
+      if (!window.firebase) await load(SDK + 'firebase-app-compat.js');
+      if (!window.firebase.auth) await load(SDK + 'firebase-auth-compat.js');
+      if (!window.firebase.apps.length) window.firebase.initializeApp(window.PYQUEST_FIREBASE);
+      auth = window.firebase.auth();
+      if (mode === 'verifyEmail' || mode === 'verifyAndChangeEmail' || mode === 'recoverEmail') {
+        await auth.applyActionCode(code);
+        mood('m-happy', T.ok);
+        box.innerHTML = '<div class="rs-big">✅</div><h1>' + T.verifiedT + '</h1><p class="auth-lead">' + T.verified + '</p><a class="btn btn-primary btn-big login-submit" href="./?login=1">' + T.login + '</a>';
+        return;
+      }
+      if (mode !== 'resetPassword') { problem(T.missingT, T.missing, true); return; }
+      var email = await auth.verifyPasswordResetCode(code);
+    } catch (x) { fromError(x); return; }
+    mood('m-idle', T.hi);
+    var pf = function (id, label, auto) { return '<label class="field-label" for="' + id + '">' + label + '</label><div class="pass-wrap"><input id="' + id + '" class="text-input" type="password" autocomplete="' + auto + '" required><button type="button" class="pass-eye" data-for="' + id + '" aria-label="' + T.show + '">👁</button></div>'; };
+    box.innerHTML = '<h1>' + T.title + '</h1><p class="auth-lead">' + T.forAcc + '</p><p class="rs-who">' + esc(String(email || '').replace(/@pyquest\.app$/, '')) + '</p><form id="f" novalidate>' +
+      pf('p1', T.np, 'new-password') + pf('p2', T.cp, 'new-password') +
+      '<ul class="checklist"><li id="c1"><span class="ic">✓</span>' + T.ck1 + '</li><li id="c2"><span class="ic">✓</span>' + T.ck2 + '</li></ul>' +
+      '<div class="form-error" id="err" role="alert"></div><button class="btn btn-primary btn-big login-submit" type="submit">' + T.save + '</button></form>';
+    var p1 = document.getElementById('p1'), p2 = document.getElementById('p2'), err = document.getElementById('err');
+    function check() { var a = Array.from(p1.value).length >= 6, b = a && p1.value === p2.value; document.getElementById('c1').classList.toggle('ok', a); document.getElementById('c2').classList.toggle('ok', b); return b; }
+    p1.addEventListener('input', check); p2.addEventListener('input', check);
+    p1.addEventListener('focus', function () { mood(p1.type === 'text' ? 'm-peek' : 'm-shy', T.hi); });
+    p2.addEventListener('focus', function () { mood(p2.type === 'text' ? 'm-peek' : 'm-shy', T.hi); });
+    box.querySelectorAll('.pass-eye').forEach(function (b) { b.addEventListener('click', function () { var i = document.getElementById(b.dataset.for); i.type = i.type === 'password' ? 'text' : 'password'; mood(i.type === 'text' ? 'm-peek' : 'm-shy', T.hi); i.focus(); }); });
+    setTimeout(function () { p1.focus(); }, 50);
+    document.getElementById('f').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (Array.from(p1.value).length < 6) { err.textContent = T.short; mood('m-sad', T.short); return; }
+      if (p1.value !== p2.value) { err.textContent = T.mismatch; mood('m-sad', T.mismatch); return; }
+      var btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true; btn.classList.add('loading'); err.textContent = '';
+      try {
+        await auth.confirmPasswordReset(code, p1.value);
+        mood('m-happy', T.ok);
+        box.innerHTML = '<div class="rs-big">🎉</div><h1>' + T.doneT + '</h1><p class="auth-lead">' + T.done + '</p><a class="btn btn-primary btn-big login-submit" href="./?login=1">' + T.login + '</a>';
+      } catch (x) {
+        btn.disabled = false; btn.classList.remove('loading');
+        if (x && x.code === 'auth/weak-password') { err.textContent = T.weak; mood('m-sad', T.weak); }
+        else if (x && x.code === 'auth/network-request-failed') { err.textContent = T.net; mood('m-sad', T.net); }
+        else fromError(x);
+      }
+    });
+  })();
+})();
+</script>
+</body>
+</html>
