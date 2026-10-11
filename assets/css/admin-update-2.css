@@ -1,0 +1,36 @@
+/* PyQuest — Teacher admin */
+.admin-login { max-width: 520px; }
+.admin-card, .admin-manager { max-width: 880px; margin: 16px auto 0; padding: clamp(18px, 4vw, 28px); }
+.admin-card h2, .admin-manager-heading h2 { font: 700 20px var(--display); margin: 0; overflow-wrap: anywhere; }
+.admin-card h2 { margin-bottom: 16px; }
+.admin-card form { display: grid; gap: 8px; }
+.admin-card .field-label { margin-top: 8px; }
+.admin-code-input, .admin-explanation-input { height: auto; min-height: 76px; padding: 10px 12px; resize: vertical; line-height: 1.6; }
+.admin-code-input { font-family: var(--mono); font-size: 13px; }
+.answer-fieldset { display: flex; flex-wrap: wrap; gap: 16px; margin: 8px 0 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 6px; }
+.answer-fieldset legend { padding: 0 4px; font-size: 13px; font-weight: 600; }
+.answer-fieldset label { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.answer-fieldset input { accent-color: var(--blue); }
+.admin-form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.admin-manager-heading { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 16px; }
+.admin-manager-heading > div { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.admin-manager-heading .menu-icon { margin: 0; }
+.admin-puzzle-list { display: grid; gap: 12px; }
+.admin-puzzle-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 16px; border-radius: 8px; }
+.admin-question-copy { min-width: 0; flex: 1; }
+.admin-question-copy .eyebrow { font-size: 12px; font-family: var(--mono); color: var(--muted); }
+.admin-question-copy h3 { margin: 2px 0; font: 700 15px var(--display); overflow-wrap: anywhere; }
+.admin-question-copy p { margin: 3px 0; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.admin-question-copy pre { max-width: 100%; max-height: 180px; overflow: auto; margin: 8px 0; padding: 10px 12px; background: var(--code-bg); color: #e5ebf5; border-radius: 6px; font: 12.5px/1.6 var(--mono); }
+.admin-question-copy small { font-weight: 600; color: var(--blue-d); }
+.admin-question-copy .admin-explanation-preview { margin-top: 6px; padding: 6px 10px; background: #f4f5f0; border-radius: 5px; }
+.admin-row-actions { display: flex; gap: 6px; flex: none; }
+.admin-row-actions .btn { min-height: 38px; padding: 6px 12px; }
+.admin-page .section-heading p { overflow-wrap: anywhere; }
+@media (max-width: 650px) {
+  .admin-manager-heading { flex-direction: column; align-items: stretch; }
+  .admin-puzzle-row { flex-direction: column; }
+  .admin-row-actions { width: 100%; }
+  .admin-row-actions .btn { flex: 1; }
+  .admin-form-actions { display: grid; grid-template-columns: 1fr 1fr; }
+}
