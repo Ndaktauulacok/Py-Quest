@@ -1,0 +1,27 @@
+/* PyQuest — update 15: tulisan tema Permainan Klasik tidak lagi terkeluar.
+   VT323 (piksel, sempit) untuk kebanyakan teks; Press Start 2P (piksel lebar) hanya untuk tajuk besar. */
+html[data-theme="retro"] { --display: "VT323", "Press Start 2P", monospace; --pixel: "Press Start 2P", "VT323", monospace; }
+html[data-theme="retro"] h1, html[data-theme="retro"] .page-title, html[data-theme="retro"] .landing-title, html[data-theme="retro"] .brand, html[data-theme="retro"] .pq-dialog h2 { font-family: var(--pixel); overflow-wrap: break-word; }
+html[data-theme="retro"] .page-title { font-size: clamp(16px, 2.2vw, 24px); line-height: 1.45; }
+html[data-theme="retro"] .landing-title { font-size: clamp(20px, 3.2vw, 34px); line-height: 1.45; }
+html[data-theme="retro"] .pq-dialog h2 { font-size: 16px; line-height: 1.5; }
+html[data-theme="retro"] .brand { font-size: 16px; }
+/* Teks lain guna VT323 dengan saiz lebih besar (huruf VT323 kecil & sempit) */
+html[data-theme="retro"] .card h2, html[data-theme="retro"] .pf-card h2, html[data-theme="retro"] .ss-info h2, html[data-theme="retro"] .pc-body b, html[data-theme="retro"] .shop-banner .mpb-body b, html[data-theme="retro"] .mpb-body b, html[data-theme="retro"] .pf-me b, html[data-theme="retro"] .coin-rules h3 { font-family: var(--display); font-size: 26px; line-height: 1.1; text-shadow: 2px 2px 0 #000; }
+html[data-theme="retro"] .q-text { font-family: var(--display); font-size: 28px; line-height: 1.15; }
+html[data-theme="retro"] .stat-tile b { font-family: var(--display); font-size: 34px; }
+html[data-theme="retro"] .sk-name { font-family: var(--display); font-size: 22px; line-height: 1.05; }
+html[data-theme="retro"] .theme-card b, html[data-theme="retro"] .mode-btn b, html[data-theme="retro"] .lvl-txt b, html[data-theme="retro"] .play-card b, html[data-theme="retro"] .mp-card h2, html[data-theme="retro"] .auth-card h3 { font-family: var(--display); font-size: 24px; line-height: 1.05; font-weight: 400; overflow-wrap: break-word; }
+html[data-theme="retro"] .btn { font-family: var(--display); font-size: 21px; line-height: 1; }
+html[data-theme="retro"] .btn-big { font-size: 26px; }
+html[data-theme="retro"] .nav-link { font-family: var(--display); font-size: 21px; padding: 6px 10px; }
+html[data-theme="retro"] .rank-top strong, html[data-theme="retro"] .rank-badge, html[data-theme="retro"] .rs-stats b, html[data-theme="retro"] .landing-stats b, html[data-theme="retro"] .cr b, html[data-theme="retro"] .pf-stats b { font-family: var(--display); font-size: 26px; }
+html[data-theme="retro"] .ss-info h2 { font-size: 34px; }
+html[data-theme="retro"] .theme-card, html[data-theme="retro"] .theme-card .tc-prev { border-radius: 0; }
+html[data-theme="retro"] .theme-card b, html[data-theme="retro"] .theme-card small { min-width: 0; }
+@media (max-width: 800px) { html[data-theme="retro"] .nav-link { font-size: 22px; } }
+/* Safari / iPhone: tanpa penapis piksel (elak ular hilang) */
+html.no-px[data-theme="retro"] .hero-svg .hx-float { filter: none; }
+@media (max-width: 520px) { html[data-theme="retro"] .nav-wrap { gap: 6px; padding: 0 10px; } html[data-theme="retro"] .nav-right { gap: 4px; } html[data-theme="retro"] .language-switch button { padding: 5px 6px; } }
+@media (max-width: 400px) { html[data-theme="retro"] .brand { font-size: 12px; } }
+@media (max-width: 400px) { html[data-theme="retro"] .brand .brand-text, html[data-theme="retro"] .brand .brand-word { font-size: 12px !important; } }
