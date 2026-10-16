@@ -1,0 +1,24 @@
+/* PyQuest — update 20: game muat dalam skrin. Lihat assets/js/fit-update-20.js (zoom automatik). */
+/* jawapan pendek → 2 lajur di telefon */
+@media (max-width: 700px) {
+  .arena.pq-short .answers, .arena.pq-short .keycards, .arena.pq-short .gears, .arena.pq-short .pz-choices, .mp-q.pq-short .answers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* skrin rendah (telefon kecil, komputer riba dengan skala 125–150 %) → susun atur lebih padat */
+@media (max-height: 760px) {
+  .game-page.is-playing .arena .q-card { padding-top: 14px; padding-bottom: 14px; }
+  .game-page.is-playing .arena .q-text { margin-bottom: 8px; }
+  .game-page.is-playing .arena .q-code { margin-top: 6px; margin-bottom: 10px; }
+  .game-page.is-playing .arena .answers, .game-page.is-playing .arena .keycards, .game-page.is-playing .arena .gears { margin-top: 8px; gap: 8px; }
+}
+/* hiasan permainan (arena lawan, peti besi, trek lumba, laluan harta) dikecilkan bila skrin rendah */
+@media (max-height: 700px), (max-width: 700px) and (max-height: 800px) {
+  .game-page.is-playing .battle, .game-page.is-playing .vault-stage, .game-page.is-playing .track, .game-page.is-playing .trail-wrap { zoom: .74; }
+}
+@media (max-height: 560px), (max-width: 700px) and (max-height: 680px) {
+  .game-page.is-playing .battle, .game-page.is-playing .vault-stage, .game-page.is-playing .track, .game-page.is-playing .trail-wrap { zoom: .58; }
+}
+/* telefon melintang / skrin sangat rendah */
+@media (max-height: 470px) {
+  .game-page.is-playing .battle, .game-page.is-playing .vault-stage, .game-page.is-playing .track, .game-page.is-playing .trail-wrap { zoom: .42; }
+  body.pq-playing .site-header { position: relative; }   /* bar atas tidak melekat supaya seluruh skrin untuk soalan */
+}
