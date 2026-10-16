@@ -1,0 +1,263 @@
+# PyQuest — Update 20 (Edisi Pertandingan)
+
+## 1. Pyko: sejarah sembang + chat baharu
+- Bila Pyko ditutup, sembang itu **disimpan automatik dalam Sejarah**. Bila Pyko dibuka semula (atau selepas muat semula laman), **sembang baharu bermula** — sembang lama masih ada.
+- Butang baharu di kepala Pyko:
+  - **🕘 Sejarah** — senarai semua sembang (terbaharu di atas) dengan tajuk (soalan pertama), tarikh/masa dan bilangan mesej. Tekan untuk membaca atau **menyambung** sembang lama; 🗑 untuk padam satu sembang; "Padam semua sembang".
+  - **＋ Chat baharu** — mula sembang baharu bila-bila masa.
+- Bila sembang sudah panjang (30 mesej ke atas), Pyko memaparkan cadangan "Sembang ini sudah panjang — ＋ Chat baharu".
+- Bila membaca sembang lama, ada jalur "Sembang tersimpan dari …" dengan butang chat baharu.
+- Di telefon, bila Pyko ditutup sendiri kerana pelajar menekan butang pautan (contoh "Baca nota"), membuka semula Pyko menyambung sembang yang sama.
+- Sehingga 30 sembang disimpan dalam pelayar (yang paling lama dibuang dahulu). Sembang daripada update 19 dipindahkan automatik ke Sejarah.
+- Semua teks Sejarah ikut bahasa (EN/BM) dan tema.
+
+## 2. Game muat dalam skrin — tanpa scroll
+- Setiap kali soalan baharu muncul (6 game + Multiplayer), saiz kawasan permainan **diukur dan dikecilkan secara automatik** supaya soalan dan **semua butang jawapan muat di skrin** peranti itu, kemudian diletakkan tepat di bawah bar atas.
+- Skrin rendah (komputer riba dengan skala 125–150 %, telefon kecil): hiasan permainan (arena raksasa, peti besi, trek lumba, laluan harta) dikecilkan dahulu supaya tulisan soalan kekal besar.
+- Telefon: jawapan pendek disusun **2 lajur**; butang Pyko jadi kecil semasa bermain supaya tidak menutup jawapan.
+- Telefon melintang / skrin sangat rendah: bar atas tidak melekat semasa bermain supaya seluruh skrin untuk soalan.
+- Selepas menjawab, butang **Seterusnya** dipastikan kelihatan.
+- Dikira semula bila skrin diputar atau saiz tetingkap berubah. Diuji pada 1920×960, 1536×730, 1366×657, 1280×600, 1093×520, 1024×700, 820×1100, 768×1024, 390×844, 375×667, 360×600 dan 844×390.
+
+## Info
+- Info → Kenali Pyko: tambah "Sejarah sembang" dan petua baharu. Cara PyQuest berfungsi → Game: nota tentang skrin yang menyesuaikan saiz.
+
+## PENTING selepas upload
+1. Upload semua fail, kemudian Ctrl+F5. **Tiada perubahan `database.rules.json`.**
+2. Fail lama yang boleh dipadam di GitHub: `assets/js/pyko-update-19.js`, `assets/css/pyko-update-19.css`, `assets/js/info-update-19.js`.
+
+Fail baharu: `assets/js/pyko-update-20.js`, `assets/css/pyko-update-20.css`, `assets/js/fit-update-20.js`, `assets/css/fit-update-20.css`, `assets/js/info-update-20.js`. `index.html` dikemas kini.
+
+---
+
+# PyQuest — Update 19 (Edisi Pertandingan)
+
+## Pyko 🐍🤖 — bot pembantu Python
+Butang **💬 Tanya Pyko** dengan robot ular python di bucu kanan bawah setiap halaman. Pyko menjawab soalan pelajar dalam **BM atau English**.
+
+- **149 topik dalam pangkalan pengetahuan**, semuanya dwibahasa: asas Python (print, pemboleh ubah, jenis data, operator, string, f-string, if/elif/else, gelung for/while, range, list, tuple, set, dictionary, fungsi, skop, lambda, rekursi, modul math/random/time, try/except, kelas, fail), setiap jenis ralat (SyntaxError, IndentationError, NameError, TypeError, ValueError, IndexError, KeyError, ZeroDivisionError, AttributeError, dll.), contoh program (perdana, palindrom, FizzBuzz, faktorial, Fibonacci, teka nombor), kerjaya & projek, dan **cara guna PyQuest** (syiling, XP, streak python, kedai skin, tema, Multiplayer, akaun, kata laluan, Info).
+- **Menjalankan kod** terus dalam pelayar (tanpa internet), termasuk `input()` — Pyko minta jawapan dahulu. Output dan mesej ralat sama seperti Python sebenar (diuji dengan 5,600+ kes berbanding Python 3).
+- **Menerangkan ralat**: tampal mesej ralat / traceback, Pyko terangkan maksud, tunjuk baris dan beri cara membaiki khusus untuk kod itu.
+- **"Terangkan kod di skrin"**: selepas menjawab soalan dalam game, Pyko jalankan kod soalan itu dan senaraikan konsep yang digunakan (tidak memberi jawapan sebelum pelajar menjawab).
+- **Kuiz pantas** daripada bank soalan PyQuest, **lawak**, **senarai semua topik**, dan butang yang terus membawa ke nota / game / kedai / tema.
+- Faham ejaan salah kecil, sinonim BM ↔ EN, soalan "apa output print(7 // 2)?", sapaan dan kata-kata semangat.
+- **Ikut bahasa & tema**: tukar EN/BM → seluruh sembang (termasuk jawapan lama) bertukar bahasa. Tukar tema → warna Pyko & panel ikut (8 tema, termasuk gaya piksel Permainan Klasik).
+- Telefon: panel skrin penuh. Komputer: tetingkap sembang. Kekunci: Enter hantar, butang **{ }** untuk kotak kod (Ctrl+Enter jalankan, Tab = 4 ruang), Esc tutup.
+- Sejarah sembang disimpan dalam pelayar sahaja (butang 🗑 untuk padam). Butang "ke atas" kini terletak di atas Pyko.
+
+## Info dikemas kini
+- Bahagian baharu **Info → Kenali Pyko (bot pembantu)**: apa Pyko boleh buat, contoh soalan (tekan untuk terus bertanya), dan petua. Pyko juga ditambah dalam "Cara PyQuest berfungsi".
+
+## PENTING selepas upload
+1. Upload semua fail (struktur folder sama), kemudian Ctrl+F5.
+2. **Tiada perubahan `database.rules.json`** dalam update ini.
+
+Fail baharu: `assets/js/pyko-update-19.js`, `assets/js/pyko-run-update-19.js`, `data/pyko-kb-update-19.js`, `assets/js/info-update-19.js`, `assets/css/pyko-update-19.css`. `index.html` dikemas kini.
+
+---
+
+# PyQuest — Update 18 (Edisi Pertandingan)
+
+## 1. Tukar bahasa di mana-mana sahaja — semuanya berubah
+- Tekan EN / BM bila-bila masa, **termasuk di tengah permainan**. Soalan, pilihan jawapan, jawapan betul, **penerangan (Why? / Kenapa?)**, petunjuk, matlamat Detektif Debug dan kata pujian semuanya bertukar serta-merta.
+- Berfungsi untuk kesemua 6 game, Multiplayer (soalan, penerangan, mesej ralat) dan semua halaman lain.
+- Pelajar boleh baca dalam BM dahulu, kemudian tukar ke EN untuk belajar istilah Python dalam bahasa Inggeris (dan sebaliknya).
+
+## 2. Butang anak panah ke atas ⬆
+- Butang bulat dengan anak panah muncul di bucu kanan bawah bila halaman diskrol ke bawah. Tekan untuk kembali ke atas. Ikut warna setiap tema.
+
+## 3. Kuasa admin: beri syiling & ban akaun
+- Admin → **Pengguna berdaftar**: setiap akaun ada butang **🪙 Syiling** dan **🚫 Ban**.
+  - **Beri syiling** (1–1000) dengan mesej pilihan. Pelajar terus nampak "Anda dapat hadiah! 🎁" — walaupun sedang dalam talian. Satu hadiah hanya boleh dituntut sekali.
+  - **Ban** dengan sebab. Pelajar terus dilog keluar dan nampak sebabnya. Akaun yang diban tidak boleh log masuk, menyimpan kemajuan atau masuk Multiplayer. **Buka ban** bila-bila masa.
+  - Senarai **Hadiah syiling terkini** dan **Akaun yang diban** untuk rekod.
+- Hanya akaun admin (dalam `admins/<uid>: true` di Firebase) boleh guna kuasa ini — log masuk dengan akaun admin di halaman utama, kemudian buka panel Admin.
+
+## 4. Semakan semua 8 tema
+- **Lobi Turbo Race: kereta tidak muncul** (dalam SEMUA tema, paling ketara dalam Permainan Klasik) — dibaiki.
+- Permainan Klasik (8-bit): logo PyQuest dilukis semula bila tulisan piksel siap dimuat (ular tidak lagi menutup huruf); nombor streak pada pil python lebih jelas.
+- Telefon: bar atas tema Cyber / Dark / Light terkeluar sedikit bila syiling / streak banyak digit — dibaiki (semua tema muat pada 320–390px).
+- Semua halaman (utama, lobi & permainan 6 game, keputusan, profil, kedai skin, Multiplayer, Info, python pet, log masuk) diperiksa dalam 8 tema, komputer & telefon.
+
+## PENTING selepas upload
+1. **Publish semula `database.rules.json`** di Firebase → Realtime Database → Rules (peraturan baharu: `bans`, `gifts`, `giftlog`).
+2. Ctrl+F5 di pelayar.
+
+Fail baharu: `assets/js/app-update-18.js`, `engine-update-18.js`, `power-update-18.js`, `assets/css/ui-update-18.css`. `index.html` dikemas kini.
+
+---
+
+# PyQuest — Update 17 (Edisi Pertandingan)
+
+## 1. Multiplayer dibaiki sepenuhnya
+- **Kesemua 6 game boleh dimain multiplayer**: Pertempuran Kuiz, Buru Bug, Detektif Debug, Peti Besi Kod, Lumba Turbo, Wira Galaksi. Setiap game ada kad soalan sendiri (baris kod boleh diklik, kad kunci, gear, alien).
+- **Hos pilih peranan** (untuk KEDUA-DUA mod "Hos mengawal" dan "Ikut kadar sendiri"):
+  - **Main sekali** — hos menjawab dan masuk papan markah, sambil masih mengawal bilik.
+  - **Tengok sahaja** — hos tidak menjawab; hanya memantau, tunjuk jawapan, skip dan tamatkan.
+- **Butang Skip soalan untuk hos**:
+  - Mod hos mengawal: semua terus ke soalan seterusnya, tiada mata untuk soalan itu.
+  - Mod kadar sendiri: **Pemantau soalan** menunjukkan berapa pemain pada setiap soalan, dengan butang ⏭ untuk skip mana-mana soalan bagi semua.
+- **Markah adil**: dalam mod hos mengawal, masa jawapan dicop oleh pelayan Firebase dan markah dikira oleh hos (jawapan pantas = lebih mata, tidak boleh ditipu, tiada markah berganda).
+- **Keluarkan pemain** (butang ✕) — pemain yang dikeluarkan tidak boleh masuk semula.
+- **Sambung semula**: jika halaman dimuat semula / telefon terputus, buka Multiplayer → "Kembali ke bilik" (hos & pemain).
+- Amaran "Hos di luar talian", bilangan pemain dalam talian, papan markah dengan bilangan betul.
+- **Main lagi dengan game lain**: di skrin keputusan, hos boleh pilih game & tahap seterusnya.
+- XP **dan syiling** ditambah ke profil selepas setiap permainan multiplayer (sekali sahaja, walaupun halaman dimuat semula). Pusingan game baharu dikira dalam statistik & pencapaian.
+- Kekunci 1–9 untuk menjawab, Enter untuk seterusnya.
+
+## 2. Streak Python (gaya TikTok)
+- Setiap hari bermain = +1 hari streak, dan **telur python membesar**: Telur (0) → Telur Retak (3) → Baru Menetas (5) → Anak Python (7) → Python Muda (14) → Python Dewasa (30) → Raja Python (60) → Python Legenda (100 hari).
+- Mood python: **kenyang** (sudah main hari ini), **lapar** (belum main hari ini, ada kiraan masa sehingga tengah malam), **sakit** (terlepas semalam — main hari ini untuk selamatkan; penyelamat boleh dipakai sekali setiap 7 hari), **mati** (terlepas lebih lama — streak hilang, telur baharu bila main semula).
+- Kad python besar di papan pemuka, pil python di bar atas (klik untuk lihat semua peringkat), 7 hari terakhir ditanda api 🔥.
+- **Animasi sambutan** selepas pusingan pertama setiap hari: "Streak +1!", "Telur sudah menetas!", "Python anda berubah!", "Python diselamatkan!".
+- Pencapaian baharu: **Penetas Telur** (5 hari), **Penjaga Python** (30 hari). Pencapaian 7 hari kini guna rekod streak terbaik (tidak hilang).
+- Streak disimpan dalam akaun (Firebase). Data lama dipindah automatik.
+
+## 3. Pembaikan lain
+- Telefon: butang Tema dipindah ke menu ☰ dan butang bahasa dipadatkan supaya bar atas muat (tiada lagi skrol ke tepi).
+- Detektif Debug: 7 matlamat BM yang masih separuh English telah diterjemah.
+
+## PENTING selepas upload
+1. **Publish semula `database.rules.json`** di Firebase → Realtime Database → Rules (peraturan bilik multiplayer berubah). Tanpa ini multiplayer akan beri "Kebenaran ditolak".
+2. Ctrl+F5 (atau kosongkan cache) di pelayar.
+
+Fail baharu: `assets/js/mp-update-17.js`, `engine-update-17.js`, `app-update-17.js`, `pet-update-17.js`, `info-update-17.js`, `assets/css/mp-update-17.css`, `pet-update-17.css`, `data/games-bug-update-17.js` (ganti `games-bug-update-16.js`). `index.html` dikemas kini.
+
+---
+
+# PyQuest — Update 16 (Edisi Pertandingan)
+
+## Baharu dalam Update 16 — 4 game baharu (kini 6 game)
+| Game | Daripada fail arked | Cara main | Kuasa |
+|---|---|---|---|
+| **Debug Detective / Detektif Debug** | Cari Bug | Klik baris tepat yang ada bug; selepas jawab, baris yang dibaiki dipaparkan. Hard = bug logik (kod berjalan tapi jawapan salah). | Petunjuk (separuh XP) |
+| **Code Vault / Peti Besi Kod** | Pemecah Kata Laluan | Baca syarat dalam kod, pilih kata laluan / PIN yang mencetak ACCESS GRANTED. Pintu peti besi dengan 10 lampu. | Petunjuk (separuh XP) |
+| **Turbo Race / Lumba Turbo** | Lumba Kereta | Isi tempat kosong ___ supaya kod mencetak output sasaran. Betul = pecutan; 7 betul untuk kalahkan pesaing. | 50/50 |
+| **Galaxy Defender / Wira Galaksi** | Tembak Alien | Tembak alien yang membawa ungkapan dengan nilai sasaran; selepas tembak, nilai setiap alien dipaparkan. | Perisai |
+
+- **Soalan baharu: 1,440** (360 setiap game, **90 setiap tahap** Easy / Normal / Medium / Hard). Soalan lama fail arked dibuang. Semua soalan dijana dan **setiap jawapan disemak dengan menjalankan Python sebenar** (2 kali: penjana + pengesah bebas). Penerangan dalam BM & English.
+- Semua game baharu guna sistem sedia ada: 5 nyawa, kombo, XP ikut tahap, bonus +50 XP markah penuh, **syiling** (Easy 3 / Normal 6 / Medium 10 / Hard 15), mod pantas, kekunci 1–4 (Debug: 1–9), butang Back, semua 8 tema.
+- **Admin**: tab baharu Debug, Peti Besi, Lumba, Galaksi — tambah pukal, edit, padam, tampal dari Excel, muat turun fail data, pulihkan asal, dan **terus berubah untuk semua akaun** (Firebase). Templat Excel dikemas kini dengan 4 tab baharu.
+- **Pencapaian baharu (13 semuanya)**: Detektif Bug, Pemecah Peti, Juara Laju, Penjaga Galaksi, Serba Boleh (main 6 game), Pengumpul Syiling (300), Bintang Gaya (3 skin).
+- Papan pemuka: grid 6 game, statistik "Pusingan dimain" & "Game dicuba". Statistik langsung admin: pusingan setiap game. Halaman Info dikemas kini.
+- **PENTING:** Publish semula `database.rules.json` (Realtime Database → Rules) supaya admin boleh simpan soalan 4 game baharu ke Firebase.
+- Fail baharu: `data/games-bug|vault|race|shoot-update-16.js`, `assets/js/engine-update-16.js`, `app-update-16.js`, `art-update-16.js`, `bank-update-16.js`, `analytics-update-16.js`, `info-update-16.js`, `assets/css/games-update-16.css`.
+
+---
+
+# Update 15
+
+## Baharu dalam Update 15 — Pembaikan tema Permainan Klasik (8-bit)
+- **Ular tidak lagi hilang** dalam pertempuran, dialog (contoh "Keluar dari permainan?") dan tempat lain: saiz blok piksel kini dikira ikut saiz ular di skrin.
+- Safari / iPhone / iPad: ular dipaparkan tanpa penapis piksel (supaya sentiasa kelihatan).
+- **Tulisan tidak lagi terkeluar**: tulisan piksel lebar (Press Start 2P) hanya untuk tajuk besar; teks lain guna tulisan piksel sempit VT323.
+- Fail baharu: `assets/js/art-update-15.js`, `assets/css/theme-update-15.css`. `index.html` dan `reset.html` dikemas kini.
+
+---
+
+# Update 14
+
+## Baharu dalam Update 14 — Tema Permainan Klasik (8-bit)
+- Tema baharu **Permainan Klasik**: tulisan piksel, butang & kad bersudut tajam dengan bayang piksel, latar grid + garisan skrin CRT, ular jadi piksel (penapis SVG) dengan cermin mata & topi piksel.
+- Pangkat: Python Player 1 → Python Arcade Legend. Mod: Boss Fight / Glitch Hunt, raksasa "Pixel Bug".
+- 5 skin asli (diilhamkan oleh jenis permainan arked, bukan watak berhak cipta): Speed Runner (Normal 15), Jungle Commando (Normal 15), Block Stacker (Special 30), Arena Fighter (Epic 50), Arcade Champion (Legend 100).
+- Fail baharu: `assets/js/skins-update-14.js`, `art-update-14.js`, `app-update-14.js`, `assets/css/theme-update-14.css`. `index.html` dan `reset.html` dikemas kini. Tiada perubahan pada `database.rules.json`.
+
+---
+
+# Update 13
+
+## Baharu dalam Update 13
+- **Profil** (tekan gambar/nama di bar atas): bar sisi **Profil** dan **Avatar**.
+  - Gambar profil: muat naik gambar sendiri (dipotong segi empat 160px) atau pilih 12 gambar sedia ada, atau guna ular sendiri.
+  - Nama paparan: boleh ditukar **sekali setiap 7 hari**. Log masuk tetap guna nama pengguna asal.
+- **Syiling**: dapat selepas setiap pusingan Kuiz/Puzzle. Markah penuh: Easy 3, Normal 6, Medium 10, Hard 15. Ada salah = dipotong ikut jawapan betul (contoh Hard 9/10 = 13).
+- **Kedai Skin** (Avatar): 5 skin untuk setiap tema — Normal 15, Special 30, Epic 50, Legend 100 syiling. Skin ikut tema yang sedang dipakai (Lanun = skin lanun, Cyber = skin cyber …). Skin yang dipakai muncul di papan pemuka, lobi, pertempuran dan keputusan.
+- **Tema baharu**: Fantasi Gelap (tanduk, rune bercahaya) dan Fantasi Cahaya (lingkaran cahaya, sayap, mahkota daun), lengkap dengan nama pangkat dan raksasa sendiri.
+- **PENTING:** Publish semula `database.rules.json` di Firebase (Realtime Database → Rules) supaya had tukar nama 7 hari dan nama paparan dalam senarai admin berfungsi.
+- Fail baharu: `assets/js/skins-update-13.js`, `art-update-13.js`, `engine-update-13.js`, `auth-update-13.js`, `app-update-13.js`, `assets/css/theme-update-13.css`, `profile-update-13.css`. `index.html`, `reset.html`, `database.rules.json` dikemas kini.
+
+---
+
+# Update 12
+
+## Baharu dalam Update 12 — Mesra telefon (butang Back / leret kembali)
+- Butang **Back** Android dan **leret dari tepi kiri** iPhone kini berfungsi dalam laman: kembali ke skrin sebelumnya (Log masuk → Pilihan akaun → Laman utama, bab Nota Info, tab Admin, Multiplayer).
+- Jika ada tetingkap terbuka (contoh pilih tema), Back **menutup tetingkap dahulu**.
+- Semasa bermain Game, Back akan **bertanya dahulu** sebelum keluar (supaya markah tidak hilang tanpa sengaja). Dalam bilik Multiplayer, Back bertanya sebelum keluar bilik.
+- Pautan terus seperti `pyquest.lol/#info` atau `#multi` berfungsi tanpa muat semula.
+- Fail baharu: `assets/js/app-update-12.js` (index.html dikemas kini).
+
+---
+
+# Update 11
+
+## Baharu dalam Update 11
+- **Soalan dikongsi:** tambah / edit / padam soalan di Admin terus berubah untuk SEMUA akaun (Firebase). Lihat `SETUP-SOALAN-DIKONGSI-update-11.md`.
+- **Lupa kata laluan:** pautan emel terus ke `reset.html` tanpa perlu "Customize action URL".
+- Fail baharu: `assets/js/bank-update-11.js`, `app-update-11.js`, `auth-update-11.js`, `database.rules.json` (dikemas kini).
+
+---
+
+# Update 10
+
+## Baharu dalam Update 10 — Lupa kata laluan dibaiki
+- **Pepijat utama dibaiki:** borang Lupa kata laluan sebelum ini memuat semula halaman tanpa menghantar emel.
+- Kad "Semak emel anda!", butang Hantar semula, `reset.html` baharu ikut tema. Lihat `SETUP-LUPA-PASSWORD-update-10.md`.
+- Fail baharu: `assets/js/app-update-10.js`, `assets/js/auth-update-10.js`, `reset.html` (dikemas kini).
+
+---
+
+# Update 9
+
+## Baharu dalam Update 9 (Admin)
+- **Urus Kuiz** (baharu) di sebelah **Urus Puzzle**: senarai ikut tahap, carian, Edit, Padam, Pulihkan asal.
+- **Tambah soalan secara pukal**: pilih 1 / 5 / 10 / 20 borang (atau "+ Satu lagi"), isi sekali gus, tekan Simpan. Borang kosong dilangkau. Lajur Bahasa Melayu pilihan (disalin dari English jika kosong).
+- **Tampal dari Excel / Google Sheets**: salin baris dari helaian dan tampal; tekan *Semak* untuk lihat berapa sah / bermasalah, kemudian *Tambah*.
+- **Muat turun fail data**: menghasilkan `questions-update-7.js` / `puzzles-update-7.js`. Muat naik ke folder `data/` di GitHub supaya soalan baharu muncul untuk SEMUA pelajar (tanpa langkah ini, perubahan hanya dalam pelayar guru).
+- **Statistik langsung** dan **Pengguna berdaftar** direka semula: kad KPI dengan perbandingan semalam, carta 7 hari (Lawatan/Pelawat), carta pendaftaran 14 hari, senarai "Aktif baru-baru ini", jadual pengguna dengan carian, susunan dan pangkat.
+- Fail baharu: `assets/js/app-update-9.js`, `assets/css/admin-update-9.css`.
+
+---
+
+# Update 8
+
+## Baharu dalam Update 8
+- **Info → bar sisi kiri** dengan *Kenapa PyQuest* (ditulis semula ikut matlamat projek), *Cara PyQuest berfungsi* dan **Nota Python penuh, 18 bab** (75 contoh kod; output setiap contoh dijana dengan menjalankan Python sebenar). Setiap bab ada Tip, *Uji diri*, butang *Tanda sudah baca* dan butang terus ke Game pada tahap yang sesuai.
+- **Multiplayer** (menu atas): cipta bilik dan dapat kod 6 aksara, kawan masuk dengan kod. Dua mod: *Hos mengawal (mod guru)* atau *Ikut kadar sendiri*. Papan markah langsung dan podium akhir.
+  **PENTING:** ikut `SETUP-MULTIPLAYER-update-8.md` (hidupkan Anonymous sign-in + Publish `database.rules.json` baharu).
+- Fail baharu: `data/notes-update-8.js`, `assets/js/info-update-8.js`, `mp-update-8.js`, `engine-update-8.js`, `app-update-8.js`, `auth-update-8.js`, `assets/css/mp-update-8.css`.
+
+---
+
+# Update 7
+
+## Apa yang baharu
+- **5 tema** (butang 🎨 Tema di atas, atau "Cuba tema" di papan pemuka). Berubah serta-merta, termasuk ular pada logo PyQuest:
+  - **Klasik Ceria** (lalai, kini berwarna-warni)
+  - **Pengembaraan Lanun**: ular kapten lanun. Pangkat dari *Python Crew* hingga *Python Pirate King*
+  - **Neon Cyberpunk**: ular robot dengan visor neon. Pangkat dari *Python Byte* hingga *Python Singularity*
+  - **Wira Biru (Lelaki)** dan **Kilauan Merah Jambu (Perempuan)**: pangkat biasa (*Python Rookie* …)
+- **6 pangkat** (0, 100, 250, 500, 850, 1300 XP).
+- **Menu "Game"** menggantikan Puzzle + Quiz. Bar sisi: pilih mod (Quiz / Puzzle), tahap (**Easy / Normal / Medium / Hard**), mod pantas (pemasa) dan bunyi.
+  - **Quiz Battle**: jawab soalan untuk menyerang raksasa bug. 5 nyawa, kuasa 50/50, kombo, bintang.
+  - **Bug Hunt**: kod "Berjalan lancar" atau "Ada bug"? Laluan ke harta karun, kuasa Perisai, cop "BUG FOUND".
+  - Setiap pusingan = 10 soalan **rawak** (soalan yang belum dilihat diutamakan).
+- **332 soalan kuiz + 200 puzzle**. Setiap jawapan soalan kod disemak dengan **menjalankan kod Python sebenar**.
+- **Log masuk interaktif**: maskot mata ikut tetikus, tutup mata dengan ekor bila taip kata laluan, senarai semak kata laluan, meter kekuatan.
+- **Tiada lagi `confirm()`/`alert()` pelayar**. Semua dialog ialah dialog PyQuest sendiri.
+- Gambar **ular adiwira** asli di halaman utama (berubah ikut tema).
+
+## Fail yang digunakan sekarang
+`index.html` memuatkan:
+- `data/questions-update-7.js`, `data/puzzles-update-7.js`
+- `assets/js/art-update-7.js`, `fx-update-7.js`, `engine-update-7.js`, `app-update-7.js`, `info-update-7.js`
+- `assets/css/theme-update-7.css`, `game-update-7.css` (selepas CSS lama)
+
+Fail lama (`app-update-2..6.js`, `engine-update-2/4.js`, `data/questions.js`, `questions-extra.js`, `puzzles.js`, `puzzles-extra.js`, `info-update-3.js`) **tidak dimuat lagi**. Boleh dibiarkan atau dipadam.
+
+## Cara muat naik ke GitHub
+Muat naik **semua** fail dalam folder ini (kekalkan struktur folder `assets/` dan `data/`). Firebase, akaun dan `database.rules.json` **tidak berubah**, jadi tidak perlu tetapan baharu.
+
+## Nota Admin
+Pengurus Puzzle kini disusun ikut tahap (Easy/Normal/Medium/Hard). Puzzle yang diedit disimpan dalam pelayar peranti itu. Butang **Pulihkan asal** mengembalikan bank 200 puzzle.
